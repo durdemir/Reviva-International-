@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VITALITYDEALS Marketplace</title>
+
+<style>
+
+:root{
+--navy:#14244D;
+--pink:#D93A8A;
+--light:#F7F8FA;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:#f5f6f8;
+color:#14244D;
+}
+
+header{
+background:white;
+border-bottom:1px solid #ddd;
+padding:15px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+height:70px;
+}
+
+.brand{
+font-size:24px;
+font-weight:700;
+}
+
+.brand small{
+display:block;
+font-size:14px;
+font-weight:400;
+color:#666;
+}
+
+.lang{
+font-weight:600;
+}
+
+.hero{
+padding:30px;
+text-align:center;
+background:white;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero p{
+margin-top:10px;
+}
+
+.layout{
+display:flex;
+min-height:calc(100vh - 180px);
+}
+
+.sidebar{
+width:280px;
+background:white;
+padding:25px;
+border-right:1px solid #ddd;
+}
+
+.sidebar h3{
+margin-bottom:10px;
+}
+
+.sidebar label{
+display:block;
+margin-bottom:10px;
+}
+
+.content{
+flex:1;
+padding:25px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-body{
+padding:20px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 18px;
+background:var(--pink);
+color:white;
+text-decoration:none;
+border-radius:8px;
+margin-top:10px;
+}
+
+footer{
+padding:40px;
+background:var(--navy);
+color:white;
+text-align:center;
+}
+
+@media(max-width:900px){
+
+.layout{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+border-right:none;
+border-bottom:1px solid #ddd;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+<img src="VitalityDeals_Logo.png">
+
+<div class="brand">
+VITALITYDEALS
+<small>by REVIVA International</small>
+</div>
+</div>
+
+<div class="lang">
+TR | DE | EN
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>RECREATE YOURSELF™</h1>
+
+<p>
+Europe's First All-in-One Transformation Marketplace™
+</p>
+
+<p>
+Aesthetic Medicine • Beauty • Wellness • Spirituality • Experiences
+</p>
+
+<p>
+Switzerland • Germany • Austria • France • Türkiye
+</p>
+
+</section>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<h3>Category</h3>
+
+<label><input type="checkbox"> Aesthetic Medicine</label>
+<label><input type="checkbox"> Beauty</label>
+<label><input type="checkbox"> Wellness</label>
+<label><input type="checkbox"> Spirituality</label>
+<label><input type="checkbox"> Experiences</label>
+
+<hr><br>
+
+<h3>Country</h3>
+
+<label><input type="checkbox"> Switzerland</label>
+<label><input type="checkbox"> Germany</label>
+<label><input type="checkbox"> Austria</label>
+<label><input type="checkbox"> France</label>
+<label><input type="checkbox"> Türkiye</label>
+
+</aside>
+
+<main class="content">
+
+<h2>Featured Transformation Partners</h2>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://picsum.photos/600/400?1">
+<div class="card-body">
+<h3>Hair Restoration Partner</h3>
+<p>Istanbul • Türkiye</p>
+<p>Aesthetic Medicine</p>
+<a href="#" class="btn">Explore Partner</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/600/400?2">
+<div class="card
