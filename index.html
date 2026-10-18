@@ -1,355 +1,730 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VITALITYDEALS Marketplace V5</title>
-
-<style>
-
-:root{
---navy:#14244D;
---pink:#E83D7D;
---light:#F7F8FA;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Arial,sans-serif;
-background:#f5f5f5;
-color:#14244D;
-}
-
-header{
-height:90px;
-background:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 30px;
-border-bottom:1px solid #ddd;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.logo img{
-height:60px;
-}
-
-.brand{
-font-size:28px;
-font-weight:700;
-}
-
-.brand small{
-display:block;
-font-size:13px;
-font-weight:400;
-color:#666;
-}
-
-nav{
-display:flex;
-gap:30px;
-font-weight:600;
-}
-
-nav a{
-text-decoration:none;
-color:#14244D;
-}
-
-.lang{
-font-weight:700;
-display:flex;
-gap:10px;
-font-size:18px;
-}
-
-.wrapper{
-display:flex;
-}
-
-.sidebar{
-width:280px;
-background:white;
-padding:25px;
-border-right:1px solid #ddd;
-min-height:calc(100vh - 90px);
-}
-
-.sidebar h3{
-margin-bottom:15px;
-font-size:24px;
-color:#14244D;
-}
-
-.content{
-flex:1;
-padding:30px;
-}
-
-.page-title{
-font-size:42px;
-font-weight:700;
-margin-bottom:30px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px;
-}
-
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
-transition:.3s;
-cursor:pointer;
-}
-
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 15px 30px rgba(0,0,0,.15);
-}
-
-.card img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
-.card-body{
-padding:20px;
-}
-
-.card-body h3{
-font-size:32px;
-margin-bottom:10px;
-color:#14244D;
-}
-
-.card-body p{
-margin-bottom:6px;
-}
-
-.btn{
-display:block;
-text-align:center;
-padding:12px;
-background:#E83D7D;
-color:white;
-text-decoration:none;
-border-radius:8px;
-margin-top:15px;
-font-weight:bold;
-}
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.7);
-z-index:999;
-}
-
-.modal-content{
-background:white;
-max-width:700px;
-margin:80px auto;
-padding:30px;
-border-radius:15px;
-}
-
-@media(max-width:800px){
-
-.wrapper{
-flex-direction:column;
-}
-
-.sidebar{
-width:100%;
-min-height:auto;
-}
-
-.cards{
-grid-template-columns:1fr;
-}
-
-nav{
-display:none;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">
-<img src="VitalityDeals_Logo.png">
-
-<div class="brand">
-VITALITYDEALS.CH
-<small>REVIVA GROUP</small>
-</div>
-</div>
-
-<nav>
-<a href="#">Startseite</a>
-<a href="#">Alle Deals</a>
-<a href="#">Behandlungen</a>
-<a href="#">Über uns</a>
-<a href="#">Kontakt</a>
-</nav>
-
-<div class="lang">
-DE | EN | TR
-</div>
-
-</header>
-
-<div class="wrapper">
-
-<aside class="sidebar">
-
-<h3>Bereich</h3>
-
-<label><input type="radio" checked> Aesthetic Medicine</label>
-<label><input type="radio"> Beauty</label>
-<label><input type="radio"> Wellness</label>
-<label><input type="radio"> Spirituality</label>
-<label><input type="radio"> Experiences</label>
-
-<br><hr><br>
-
-<h3>Stadt</h3>
-
-<label><input type="checkbox" checked> Istanbul</label>
-<label><input type="checkbox"> Izmir</label>
-<label><input type="checkbox"> Antalya</label>
-<label><input type="checkbox"> Basel</label>
-
-</aside>
-
-<main class="content">
-
-<h1 class="page-title">
-Transformation Partners Across Europe & Türkiye
-</h1>
-
-<div class="cards">
-
-<div class="card">
-<img src="https://picsum.photos/700/500?1">
-
-<div class="card-body">
-
-<h3>Hair Restoration Partner</h3>
-<p>Istanbul • Türkiye</p>
-<p>Aesthetic Medicine</p>
-
-<a href="#" class="btn"
-onclick="openModal();return false;">
-Explore Partner
-</a>
-
-</div>
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/700/500?2">
-
-<div class="card-body">
-
-<h3>Dental Aesthetics Partner</h3>
-<p>Izmir • Türkiye</p>
-<p>Beauty</p>
-
-<a href="#" class="btn">
-Explore Partner
-</a>
-
-</div>
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/700/500?3">
-
-<div class="card-body">
-
-<h3>Wellness Resort</h3>
-<p>Antalya • Türkiye</p>
-<p>Wellness</p>
-
-<a href="#" class="btn">
-Explore Partner
-</a>
-
-</div>
-</div>
-
-</div>
-
-</main>
-
-</div>
-
-<div id="partnerModal" class="modal">
-
-<div class="modal-content">
-
-<h2>Hair Restoration Partner</h2>
-
-<p><strong>Country:</strong> Türkiye</p>
-
-<p><strong>City:</strong> Istanbul</p>
-
-<p><strong>Category:</strong> Aesthetic Medicine</p>
-
-<p>
-Professional hair restoration partner serving international patients.
-</p>
-
-<br>
-
-<button class="btn"
-onclick="closeModal()">
-Close
-</button>
-
-</div>
-
-</div>
-
-<script>
-
-function openModal(){
-document.getElementById("partnerModal").style.display="block";
-}
-
-function closeModal(){
-document.getElementById("partnerModal").style.display="none";
-}
-
-</script>
-
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20261016-04-d5e3a25","C":{"Abril Fatface":"YACgEZbkUVE,0","Albert Sans":"YAHO2HRfeh4,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo Black":"YACgEZulLoA,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Baloo 2":"YAHO2IcQUcM,0","Barlow Condensed":"YAFdJljEuFc,0","Barlow":"YAFdJsyuOPM,1","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Cairo":"YAFdtXpDzlQ,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Cinzel":"YACgEeV8bIQ,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Figtree":"YAHO2b-mV7A,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Fredoka":"YACgEZml080,0","Georgia":"YAGzXkO0pEM,0","Hanken Grotesk":"YAHO2VB9G0I,0","Helvetica":"YAFcf7zkXN0,0","IBM Plex Mono":"YAFdJkmvhGI,0","IBM Plex Sans":"YAFdJgT0SHI,0","Impact":"YAFcfnjI7Vk,0","Instrument Sans":"YAHO2bKyaSQ,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Italiana":"YAHO2Toik_w,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Karla":"YAHO2V2NSXM,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Libre Caslon Display":"YAHO2XhLmt0,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Noto Sans JP":"YAFdJiHXlcI,0","Noto Sans KR":"YAGsojZj-RQ,0","Nunito Sans":"YAFdtQJYB9w,1","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Open Sans":"YAFdJt8dAY0,1","Oswald":"YACgEQY10lw,0","Outfit":"YAHO2nVlg14,0","Pacifico":"YADLjORQ1u4,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAHO2gdhi18,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Public Sans":"YAFdJj8NdaU,1","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","STIX Two Text":"YAHO2joycuk,0","Sarabun":"YAFdJssSnME,0","Schibsted Grotesk":"YAHO2sWydRk,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Space Grotesk":"YAHO2sjPCSM,0","Space Mono":"YADW1-vpsoc,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0"}}');</script><script src="/_sdk/05db820ba1544614.telemetry_sdk.js" integrity="sha512-a7JzkQDDcioSXpM61nxTfeRW7PcxWQy5+BrhyeTFmQFsXJ+Gncm0y50u7fTA7qOPegFnRgqCfa0mGUOK1yjDWQ=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover selected health, beauty and wellness offers in Turkey with VitalityDeals.ch. Explore treatment packages and request personal guidance.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#14244D">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VitalityDeals.ch | Transformation &amp; Wellness Marketplace">
+  <meta property="og:description" content="Explore selected health, beauty, spirituality and wellness experiences in one place.">
+  <title>VitalityDeals.ch | Transformation &amp; Wellness Marketplace</title>
+  <style>
+    :root{--navy:#14244D;--pink:#E83D7D;--pink-dark:#a71a50;--paper:#F7F8FA;--line:#dfe4eb;--muted:#526078}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{width:100%;margin:0;font-family:Arial,sans-serif;color:var(--navy);background:var(--paper)}
+    body.locked{overflow:hidden}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    a{color:inherit}
+    [hidden]{display:none!important}
+    :focus-visible{outline:3px solid var(--pink-dark);outline-offset:3px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .shell{width:min(100% - 48px,1320px);margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 5px 24px #14244d09}
+    .header-inner{min-height:78px;display:flex;align-items:center;gap:24px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+    .lotus{width:52px;height:52px;flex:none}
+    .brand-name{display:block;font-size:17px;font-weight:800;letter-spacing:.035em;line-height:1.1}
+    .brand-sub{display:block;margin-top:4px;color:#526078;font-size:10px;letter-spacing:.07em}
+    .site-nav{display:flex;align-items:center;gap:19px;margin-left:auto}
+    .site-nav a{text-decoration:none;font-size:12px;font-weight:700;white-space:nowrap;padding:9px 0}
+    .site-nav a:hover,.site-nav a[aria-current="page"]{color:var(--pink-dark)}
+    .header-actions{display:flex;align-items:center;gap:10px}
+    .wa-button,.button-primary,.button-secondary,.cart-button,.menu-button,.filter-button{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:42px;border-radius:9px;font-weight:700;text-decoration:none;white-space:nowrap}
+    .wa-button{background:#14244D;color:#fff;padding:0 16px;font-size:12px}
+    .wa-button:hover{background:#253c70}
+    .language{display:flex;gap:2px;align-items:center;border:1px solid var(--line);border-radius:9px;padding:3px}
+    .language button{border:0;background:transparent;color:var(--muted);padding:7px 6px;border-radius:6px;font-size:11px;font-weight:700}
+    .language button[aria-pressed="true"]{background:var(--navy);color:#fff}
+    .cart-button,.menu-button,.filter-button{border:1px solid var(--line);background:#fff;color:var(--navy);padding:0 12px;font-size:12px}
+    .count{display:grid;place-items:center;min-width:21px;height:21px;padding:0 5px;border-radius:20px;background:var(--pink-dark);color:white;font-size:11px}
+    .menu-button{display:none}
+    .hero{position:relative;isolation:isolate;overflow:hidden;min-height:510px;background:linear-gradient(110deg,#f7f8fa 0%,#f4e7ed 47%,#d4e1e9 100%)}
+    .hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 57%;z-index:-2}
+    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,#fffffff2 37%,#ffffff9c 60%,#14244d20 100%);z-index:-1}
+    .hero-inner{min-height:510px;display:flex;align-items:center}
+    .hero-copy{width:min(670px,64%);padding:70px 0}
+    .eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-dark);margin:0 0 20px}
+    .hero h1{font-size:clamp(36px,4.5vw,66px);line-height:1.08;letter-spacing:-.045em;margin:0 0 18px;font-weight:800}
+    .hero-description{font-size:clamp(16px,1.7vw,21px);line-height:1.45;font-weight:600;margin:0 0 27px;max-width:590px}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .button-primary{background:var(--pink-dark);color:#fff;border:1px solid var(--pink-dark);padding:0 22px}
+    .button-primary:hover{background:#89113f}
+    .button-secondary{background:#fff;color:var(--navy);border:1px solid #a1aec0;padding:0 22px}
+    .button-secondary:hover{background:#f4f6f9}
+    .hero-tagline{margin:28px 0 0;font-size:12px;font-weight:800;letter-spacing:.15em}
+    .offer-badge{position:absolute;right:max(4%,calc((100% - 1320px)/2));bottom:40px;background:#fff;box-shadow:0 12px 35px #14244d28;padding:17px 19px;border-radius:14px;border-left:4px solid var(--pink);max-width:280px}
+    .offer-badge strong{display:block;font-size:13px}
+    .offer-badge span{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:5px}
+    .trust{background:#fff;border-bottom:1px solid var(--line)}
+    .trust-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;padding-block:24px}
+    .trust-item{display:flex;align-items:center;gap:10px;font-weight:700;font-size:12px;line-height:1.35}
+    .trust-item svg{width:25px;height:25px;flex:none;color:var(--pink-dark);stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .section{padding:65px 0}
+    .section-kicker{color:var(--pink-dark);font-weight:800;text-transform:uppercase;letter-spacing:.15em;font-size:11px;margin:0 0 9px}
+    .section-heading{font-size:clamp(27px,3vw,39px);letter-spacing:-.035em;margin:0 0 10px}
+    .section-intro{color:var(--muted);margin:0 0 29px;line-height:1.5}
+    .category-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:15px}
+    .category-card{display:block;text-align:left;width:100%;padding:0;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden;color:var(--navy);box-shadow:0 4px 18px #14244d0a;transition:transform .2s,box-shadow .2s,border-color .2s}
+    .category-card:hover,.category-card.active{transform:translateY(-3px);box-shadow:0 12px 28px #14244d1c;border-color:var(--pink)}
+    .image-box{position:relative;background:linear-gradient(135deg,#ebd4df,#d9e4ed);overflow:hidden}
+    .image-box img{width:100%;height:100%;object-fit:cover;display:block}
+    .image-box.image-error img{visibility:hidden}
+    .image-box.image-error:after{content:"✿";position:absolute;inset:0;display:grid;place-items:center;font-size:56px;color:#a71a5080}
+    .category-photo{height:175px}
+    .category-copy{display:block;padding:17px}
+    .category-copy strong{display:block;font-size:17px}
+    .category-copy small{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.45}
+    .category-copy em{display:block;margin-top:14px;color:var(--pink-dark);font-size:12px;font-weight:700;font-style:normal}
+    .marketplace{background:#fff;padding:65px 0 80px}
+    .market-layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:30px}
+    .filters{align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:21px}
+    .filters-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .filters-head h3{font-size:17px;margin:0}
+    .filter-close{display:none}
+    .filter-group{border:0;border-top:1px solid var(--line);margin:19px 0 0;padding:17px 0 0;min-width:0}
+    .filter-group legend{font-weight:800;font-size:13px;padding-top:17px}
+    .filter-group:first-of-type{border-top:0;margin-top:9px;padding-top:0}
+    .filter-group:first-of-type legend{padding-top:0}
+    .option{display:flex;align-items:center;gap:9px;margin:11px 0;font-size:13px;cursor:pointer}
+    .option input{width:17px;height:17px;margin:0;accent-color:var(--pink-dark);flex:none}
+    .price-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+    .price-fields label{font-size:11px;font-weight:700;display:block;margin-bottom:6px}
+    .price-fields input{width:100%;min-width:0;padding:9px 7px;border:1px solid #a1aec0;border-radius:7px;background:#fff}
+    .reset{width:100%;padding:11px;border:1px solid var(--pink-dark);color:var(--pink-dark);background:white;border-radius:8px;font-weight:700;margin-top:19px}
+    .reset:hover{background:#fff0f5}
+    .catalog{min-width:0}
+    .catalog-header{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px}
+    .catalog-header .section-heading{margin:0}
+    .result-count{color:var(--muted);font-size:13px;font-weight:700;white-space:nowrap}
+    .filter-button{display:none}
+    .deals-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .deal-card{border:1px solid var(--line);border-radius:15px;overflow:hidden;display:flex;flex-direction:column;background:#fff;box-shadow:0 5px 20px #14244d0d}
+    .deal-photo{height:190px}
+    .discount{position:absolute;top:12px;right:12px;background:var(--pink-dark);color:white;border-radius:6px;font-size:12px;font-weight:800;padding:7px 9px}
+    .deal-body{padding:18px;display:flex;flex-direction:column;flex:1}
+    .deal-category{font-size:10px;font-weight:800;color:var(--pink-dark);letter-spacing:.1em;text-transform:uppercase}
+    .deal-body h3{font-size:18px;line-height:1.25;margin:8px 0}
+    .deal-description{font-size:12px;color:var(--muted);line-height:1.5;margin:0 0 13px}
+    .deal-meta{font-size:12px;color:var(--muted);margin:0 0 14px}
+    .prices{display:flex;align-items:baseline;flex-wrap:wrap;gap:9px;margin-top:auto}
+    .prices strong{font-size:21px}
+    .prices s{font-size:13px;color:#526078}
+    .availability{font-size:11px;font-weight:700;color:var(--pink-dark);margin:10px 0 14px}
+    .add-button{width:100%;min-height:43px;border:0;background:var(--navy);color:#fff;border-radius:8px;font-weight:700}
+    .add-button:hover{background:#263e72}
+    .empty-results{grid-column:1/-1;background:var(--paper);border:1px dashed #a1aec0;border-radius:14px;padding:45px;text-align:center;color:var(--muted)}
+    .about-section{background:var(--paper)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+    .about-copy{line-height:1.7;color:var(--muted);max-width:650px}
+    .about-panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:29px}
+    .about-panel strong{display:block;font-size:19px;margin-bottom:8px}
+    .about-panel p{color:var(--muted);line-height:1.5;margin:0 0 20px}
+    .footer{background:var(--navy);color:white;padding:42px 0 22px}
+    .footer-grid{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+    .footer-brand{font-weight:800;font-size:19px}
+    .footer-sub{font-size:11px;color:#d3dceb;margin:6px 0}
+    .footer a{display:block;color:white;text-decoration:none;margin-bottom:9px;font-size:13px}
+    .footer a:hover{text-decoration:underline}
+    .footer-bottom{border-top:1px solid #ffffff35;color:#d3dceb;margin-top:30px;padding-top:19px;font-size:12px;line-height:1.5}
+    .backdrop{position:fixed;inset:0;background:#0d1c3ca8;z-index:40}
+    .drawer{position:fixed;right:0;top:0;bottom:0;z-index:41;background:#fff;width:min(440px,100%);box-shadow:-12px 0 36px #14244d35;display:flex;flex-direction:column}
+    .drawer-header{display:flex;justify-content:space-between;align-items:center;padding:23px;border-bottom:1px solid var(--line)}
+    .drawer-header h2{font-size:22px;margin:0}
+    .close-button{width:40px;height:40px;border:1px solid var(--line);border-radius:9px;background:white;color:var(--navy);font-size:25px;line-height:1}
+    .cart-items{overflow:auto;flex:1;padding:8px 23px}
+    .cart-row{border-bottom:1px solid var(--line);padding:18px 0}
+    .cart-row strong{display:block;line-height:1.4}
+    .cart-row .row-price{font-size:12px;color:var(--muted);margin:5px 0 12px}
+    .cart-controls{display:flex;align-items:center;gap:10px}
+    .cart-controls button{min-width:32px;min-height:32px;border:1px solid var(--line);border-radius:6px;background:white;color:var(--navy)}
+    .cart-controls .remove{margin-left:auto;border:0;color:var(--pink-dark);text-decoration:underline;font-size:12px}
+    .cart-empty{color:var(--muted);line-height:1.5}
+    .drawer-footer{border-top:1px solid var(--line);padding:20px 23px}
+    .subtotal{display:flex;justify-content:space-between;font-weight:800;font-size:18px;margin-bottom:16px}
+    .drawer-footer .button-primary{width:100%;border-radius:8px}
+    .drawer-footer .button-primary:disabled{opacity:.5;cursor:not-allowed}
+    .clear-cart{display:block;margin:13px auto 0;border:0;background:none;color:var(--pink-dark);font-size:12px;font-weight:700;text-decoration:underline}
+    .cart-note{font-size:11px;line-height:1.5;color:var(--muted);margin:14px 0 0}
+    .status{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:60;background:var(--navy);color:#fff;border-radius:9px;padding:12px 18px;font-size:13px;box-shadow:0 8px 24px #14244d35;max-width:min(90%,480px);text-align:center}
+    @media(max-width:1200px){.site-nav{gap:10px}.header-inner{gap:12px}.brand-name{font-size:14px}.wa-button{padding-inline:10px}.deals-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:950px){.menu-button{display:inline-flex}.site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:15px 24px;box-shadow:0 12px 20px #14244d16;flex-direction:column;align-items:stretch;gap:0}.site-nav.open{display:flex}.site-nav a{padding:13px 7px}.header-inner{min-height:70px}.category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.trust-grid{grid-template-columns:repeat(3,1fr)}.offer-badge{right:24px}}
+    @media(max-width:750px){.shell{width:min(100% - 32px,1320px)}.header-wa{display:none}.market-layout{display:block}.filter-button{display:inline-flex}.filters{display:none}.filters.mobile-open{display:block;position:fixed;z-index:51;left:0;top:0;bottom:0;width:min(360px,100%);border-radius:0;overflow-y:auto;box-shadow:12px 0 35px #14244d40}.filter-close{display:block}.filter-backdrop{z-index:50}.catalog-header{align-items:center}.hero-copy{width:min(620px,85%)}.hero:after{background:linear-gradient(90deg,#fffffff8 0%,#ffffffe5 55%,#ffffff45 100%)}.about-grid{grid-template-columns:1fr}}
+    @media(max-width:550px){.header-inner{gap:7px}.lotus{width:37px;height:37px}.brand-name{font-size:11px}.brand-sub{font-size:8px}.cart-button{padding:0 8px}.cart-word{display:none}.language button{font-size:10px;padding:6px 4px}.menu-button{padding:0 9px}.hero,.hero-inner{min-height:530px}.hero-copy{width:100%;padding:62px 0 115px}.hero h1{font-size:clamp(35px,9vw,48px)}.hero:after{background:linear-gradient(90deg,#fffffff5,#ffffffcb)}.offer-badge{bottom:17px;left:16px;right:16px;max-width:none;padding:11px 15px}.trust-grid{grid-template-columns:repeat(2,1fr);gap:20px}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.category-photo{height:125px}.category-copy{padding:12px}.category-copy strong{font-size:14px}.category-copy small{font-size:11px}.deals-grid{grid-template-columns:1fr}.deal-photo{height:215px}.section,.marketplace{padding-block:45px}}
+    @media(max-width:360px){.brand-sub{display:none}.language{gap:0}.header-inner{gap:5px}.hero-buttons a{width:100%}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/570d53629f0b998d.data_sdk.js" type="text/javascript" integrity="sha512-JEN39+V+Nvv9ZZOVS8vNk1iA9ErZJHTdgOw9KzPuMiK7m0I+KPEr/wmTnCFIQVsDjCZgJWfGnFi1IQh2Io2qyA=="></script>
+  <script src="/_sdk/7825871aa95c503d.editing_sdk.js" type="text/javascript" integrity="sha512-2lFhP7fVLyI/xh1XVD1wGvcEUDBQxBW40AsWL6PQ5RZg0/hxM41hBHE/wQF1zqhE8vvzASF/osL1pnlucLWnaQ=="></script>
+  <script src="/_sdk/f195026a424c1f85.resizing_sdk.js" type="text/javascript" integrity="sha512-8On4Z+AXh1abEzZJ9Dbn9wOvFg+k1LsAaAzKGQ7LlfgXajZ9xEmZaZ1QVzv0AWhCZtCsEpWSOG9DgLri06TS7A=="></script>
+ </head>
+ <body data-template-id="__page-root" style="background: rgb(247, 248, 250);">
+  <header data-template-id="site-header" class="site-header canva-header" style="background: rgb(255, 255, 255);">
+   <div class="shell header-inner"><a class="brand" href="#home" aria-label="VitalityDeals.ch — home" data-i18n-aria="brandHome">
+     <svg class="lotus" viewBox="0 0 96 76" role="img" aria-label="Pink lotus flower" xmlns="http://www.w3.org/2000/svg"><g stroke="#b92c68" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+       <path fill="#f4b5d0" d="M48 53C36 40 37 23 48 7c11 16 12 33 0 46Z"></path>
+       <path fill="#f8d6e4" d="M43 55C27 49 19 34 19 21c16 3 28 17 24 34Zm10 0c16-6 24-21 24-34-16 3-28 17-24 34Z"></path>
+       <path fill="#ee8eb6" d="M37 59C22 61 10 52 5 39c17-2 30 6 32 20Zm22 0c15 2 27-7 32-20-17-2-30 6-32 20Z"></path>
+       <path fill="none" d="M9 66c14-4 27-3 39 3 12-6 25-7 39-3M48 68V53"></path>
+      </g>
+     </svg><span><span data-template-id="brand-name" class="brand-name canva-text" style="color: rgb(20, 36, 77); font-weight: 800; font-style: normal; font-size: 16px;">VITALITYDEALS.CH</span><span data-template-id="brand-subtitle" class="brand-sub canva-text" style="color: rgb(82, 96, 120); font-weight: 400; font-style: normal; font-size: 16px;">by REVIVA International</span></span> </a>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation" data-i18n-aria="navLabel"><a href="#home" data-i18n="home">Home</a> <a href="#deals" data-i18n="allDeals">All Deals</a> <a href="#categories" data-i18n="treatments">Treatments</a> <a href="#about" data-i18n="combinePackages">Combine Packages</a> <a href="#about" data-i18n="about">About</a> <a href="#contact" data-i18n="contact">Contact</a>
+    </nav>
+    <div class="header-actions"><a class="wa-button header-wa" href="https://wa.me/41794877767" target="_blank" rel="noopener noreferrer" data-i18n="whatsapp">WhatsApp</a>
+     <div class="language" role="group" aria-label="Choose language" data-i18n-aria="chooseLanguage"><button type="button" data-lang="de" aria-label="Deutsch" aria-pressed="false">DE</button> <button type="button" data-lang="en" aria-label="English" aria-pressed="true">EN</button> <button type="button" data-lang="tr" aria-label="Türkçe" aria-pressed="false">TR</button>
+     </div><button id="open-cart" class="cart-button" type="button" aria-label="Open cart" data-i18n-aria="openCart"><span class="cart-word" data-i18n="cart">Cart</span><span id="cart-count" class="count">0</span></button> <button id="menu-toggle" class="menu-button" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu" data-i18n-aria="openMenu">☰</button>
+    </div>
+   </div>
+  </header>
+  <main id="home">
+   <section data-template-id="hero-section" class="hero canva-banner" aria-labelledby="hero-title" style="background: linear-gradient(110deg, rgb(247, 248, 250), rgb(212, 225, 233));"><img data-template-id="hero-image" class="hero-image canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/32138894/pexels-photo-32138894.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" alt="Lucerne city and lake with the Swiss Alps in the background">
+    <div class="shell hero-inner">
+     <div class="hero-copy">
+      <p data-template-id="hero-eyebrow" class="eyebrow canva-text" style="color: rgb(167, 26, 80); font-weight: 800; font-style: normal; font-size: 16px;">VITALITYDEALS.CH · RECREATE YOURSELF™</p>
+      <h1 id="hero-title" data-i18n="heroTitle">Vitality, Beauty, Spirituality and Wellness in one place.</h1>
+      <p class="hero-description" data-i18n="heroSubtitle">Europe's First All-in-One Transformation Marketplace™</p>
+      <div class="hero-buttons"><a data-template-id="hero-primary" class="button-primary canva-button" href="#deals" data-i18n="exploreDeals" style="background: rgb(167, 26, 80); color: rgb(255, 255, 255);">Explore Deals</a> <a data-template-id="hero-secondary" class="button-secondary canva-button" href="https://wa.me/41794877767" target="_blank" rel="noopener noreferrer" data-i18n="contactWhatsApp" style="background: rgb(255, 255, 255); color: rgb(20, 36, 77);">Contact via WhatsApp</a>
+      </div>
+      <p class="hero-tagline">RECREATE YOURSELF™</p>
+     </div>
+    </div>
+    <div data-template-id="offer-badge" class="offer-badge canva-tag" style="background: rgb(255, 255, 255);"><strong data-i18n="fiveCategories">Five ways to explore</strong> <span data-i18n="categoryNames">Health · Beauty · Spirituality · Wellness · Experiences</span>
+    </div>
+   </section>
+   <section class="trust" aria-label="Why VitalityDeals" data-i18n-aria="trustLabel">
+    <div class="shell trust-grid">
+     <div class="trust-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+       <circle cx="12" cy="12" r="9"></circle><path d="m8 16 8-8M8.5 8.5h.01m7 7h.01"></path>
+      </svg><span data-i18n="trust1">Up to 70% lower prices</span>
+     </div>
+     <div class="trust-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+       <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle>
+      </svg><span data-i18n="trust2">Selected destinations</span>
+     </div>
+     <div class="trust-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+       <path d="M12 2 20 6v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6Z"></path><path d="m8.5 12 2.5 2.5 4.5-5"></path>
+      </svg><span data-i18n="trust3">Verified partners</span>
+     </div>
+     <div class="trust-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+       <path d="M20 12.5c0 4.5-8 9-8 9s-8-4.5-8-9a4.5 4.5 0 0 1 8-2.7 4.5 4.5 0 0 1 8 2.7Z"></path>
+      </svg><span data-i18n="trust4">Personal consultation</span>
+     </div>
+     <div class="trust-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+       <circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3 4 6 4 9s-1 6-4 9c-3-3-4-6-4-9s1-6 4-9Z"></path>
+      </svg><span data-i18n="trust5">Multilingual support</span>
+     </div>
+    </div>
+   </section>
+   <section id="categories" class="section" aria-labelledby="categories-title">
+    <div class="shell">
+     <p class="section-kicker" data-i18n="discover">Discover your path</p>
+     <h2 id="categories-title" class="section-heading" data-i18n="categoriesTitle">Explore by category</h2>
+     <p class="section-intro" data-i18n="categoriesIntro">Find the experience that fits your next chapter.</p>
+     <div class="category-grid"><button class="category-card" type="button" data-category-card="Health" aria-label="Show Health deals"> <span class="image-box category-photo"><img data-template-id="category-health-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/16571735/pexels-photo-16571735.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Modern clinic room with medical equipment"></span> <span class="category-copy"><strong data-i18n="health">Health</strong><small data-i18n="healthDesc">Specialist care and treatment packages.</small><em data-i18n="viewDeals">View deals →</em></span> </button> <button class="category-card" type="button" data-category-card="Beauty" aria-label="Show Beauty deals"> <span class="image-box category-photo"><img data-template-id="category-beauty-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/3985329/pexels-photo-3985329.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Woman enjoying a soothing facial treatment"></span> <span class="category-copy"><strong data-i18n="beauty">Beauty</strong><small data-i18n="beautyDesc">Considered aesthetic treatments.</small><em data-i18n="viewDeals">View deals →</em></span> </button> <button class="category-card" type="button" data-category-card="Spirituality" aria-label="Show Spirituality deals"> <span class="image-box category-photo"><img data-template-id="category-spirituality-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Woman meditating in lotus pose with candles"></span> <span class="category-copy"><strong data-i18n="spirituality">Spirituality</strong><small data-i18n="spiritualityDesc">Space to reconnect and reflect.</small><em data-i18n="viewDeals">View deals →</em></span> </button> <button class="category-card" type="button" data-category-card="Wellness" aria-label="Show Wellness deals"> <span class="image-box category-photo"><img data-template-id="category-wellness-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Woman relaxing during a spa day with flowers and candles"></span> <span class="category-copy"><strong data-i18n="wellness">Wellness</strong><small data-i18n="wellnessDesc">Rest and restore at your pace.</small><em data-i18n="viewDeals">View deals →</em></span> </button> <button class="category-card" type="button" data-category-card="Experiences" aria-label="Show Experiences deals"> <span class="image-box category-photo"><img data-template-id="category-experiences-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/39499387/pexels-photo-39499387.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Turkish tea in front of the Bosphorus Bridge at twilight"></span> <span class="category-copy"><strong data-i18n="experiences">Experiences</strong><small data-i18n="experiencesDesc">Discover memorable destinations.</small><em data-i18n="viewDeals">View deals →</em></span> </button>
+     </div>
+    </div>
+   </section>
+   <section id="deals" class="marketplace" aria-labelledby="deals-title">
+    <div class="shell">
+     <p class="section-kicker" data-i18n="marketplaceLabel">THE MARKETPLACE</p>
+     <div class="market-layout">
+      <aside id="filters" class="filters" aria-labelledby="filters-title">
+       <div class="filters-head">
+        <h3 id="filters-title" data-i18n="filters">Filters</h3><button id="close-filters" class="close-button filter-close" type="button" aria-label="Close filters" data-i18n-aria="closeFilters">×</button>
+       </div>
+       <fieldset class="filter-group"><legend data-i18n="category">Category</legend> <label class="option"><input type="radio" name="category" value="All" checked=""><span data-i18n="all">All</span></label> <label class="option"><input type="radio" name="category" value="Health"><span data-i18n="health">Health</span></label> <label class="option"><input type="radio" name="category" value="Beauty"><span data-i18n="beauty">Beauty</span></label> <label class="option"><input type="radio" name="category" value="Spirituality"><span data-i18n="spirituality">Spirituality</span></label> <label class="option"><input type="radio" name="category" value="Wellness"><span data-i18n="wellness">Wellness</span></label> <label class="option"><input type="radio" name="category" value="Experiences"><span data-i18n="experiences">Experiences</span></label>
+       </fieldset>
+       <fieldset class="filter-group"><legend data-i18n="location">Location</legend> <label class="option"><input type="radio" name="location" value="All" checked=""><span data-i18n="all">All</span></label> <label class="option"><input type="radio" name="location" value="Istanbul"><span data-i18n="istanbul">Istanbul</span></label> <label class="option"><input type="radio" name="location" value="Izmir"><span data-i18n="izmir">Izmir</span></label> <label class="option"><input type="radio" name="location" value="Antalya"><span data-i18n="antalya">Antalya</span></label> <label class="option"><input type="radio" name="location" value="Ankara"><span data-i18n="ankara">Ankara</span></label>
+       </fieldset>
+       <fieldset class="filter-group"><legend data-i18n="price">Price · CHF</legend>
+        <div class="price-fields">
+         <div>
+          <label for="min-price" data-i18n="minPrice">Minimum</label><input id="min-price" type="number" inputmode="numeric" min="0" step="10" value="0">
+         </div>
+         <div>
+          <label for="max-price" data-i18n="maxPrice">Maximum</label><input id="max-price" type="number" inputmode="numeric" min="0" step="10" value="15000">
+         </div>
+        </div>
+       </fieldset>
+       <fieldset class="filter-group"><legend data-i18n="duration">Duration</legend> <label class="option"><input type="radio" name="duration" value="All" checked=""><span data-i18n="all">All</span></label> <label class="option"><input type="radio" name="duration" value="1-3"><span data-i18n="nights13">1–3 nights</span></label> <label class="option"><input type="radio" name="duration" value="4-6"><span data-i18n="nights46">4–6 nights</span></label> <label class="option"><input type="radio" name="duration" value="7+"><span data-i18n="nights7">7+ nights</span></label>
+       </fieldset><button id="clear-filters" class="reset" type="button" data-i18n="clearFilters">Clear filters</button>
+      </aside>
+      <div class="catalog">
+       <div class="catalog-header">
+        <div>
+         <h2 id="deals-title" class="section-heading" data-i18n="dealsTitle">Selected deals</h2><span id="result-count" class="result-count" role="status" aria-live="polite">6 deals</span>
+        </div><button id="open-filters" class="filter-button" type="button" aria-controls="filters" aria-expanded="false" data-i18n="filters">Filters</button>
+       </div>
+       <div id="deals-grid" class="deals-grid">
+        <article class="deal-card" data-deal-id="hair" data-category="Health" data-location="Istanbul" data-nights="3" data-price="2500">
+         <div class="image-box deal-photo">
+          <img data-template-id="deal-hair-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/20440136/pexels-photo-20440136.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Confident man adjusting his hair"><span class="discount">−70%</span>
+         </div>
+         <div class="deal-body">
+          <span class="deal-category" data-i18n="health">Health</span>
+          <h3 data-deal-title="hair">Hair Transplant Package</h3>
+          <p class="deal-description" data-deal-description="hair">A coordinated hair restoration package with personal guidance.</p>
+          <p class="deal-meta" data-deal-meta="hair">Istanbul · 3 nights</p>
+          <div class="prices">
+           <strong>CHF 2’500</strong><s>CHF 8’500</s>
+          </div>
+          <p class="availability" data-deal-availability="hair">3 places available</p><button class="add-button" type="button" data-add="hair" data-i18n="addToCart">Add to cart</button>
+         </div>
+        </article>
+        <article class="deal-card" data-deal-id="implant" data-category="Health" data-location="Izmir" data-nights="5" data-price="2990">
+         <div class="image-box deal-photo">
+          <img data-template-id="deal-implant-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close-up of a smile showing white teeth"><span class="discount">−65%</span>
+         </div>
+         <div class="deal-body">
+          <span class="deal-category" data-i18n="health">Health</span>
+          <h3 data-deal-title="implant">Dental Implant Package</h3>
+          <p class="deal-description" data-deal-description="implant">Dental care with a coordinated stay in Izmir.</p>
+          <p class="deal-meta" data-deal-meta="implant">Izmir · 5 nights</p>
+          <div class="prices">
+           <strong>CHF 2’990</strong><s>CHF 8’500</s>
+          </div>
+          <p class="availability" data-deal-availability="implant">5 places available</p><button class="add-button" type="button" data-add="implant" data-i18n="addToCart">Add to cart</button>
+         </div>
+        </article>
+        <article class="deal-card" data-deal-id="laser" data-category="Health" data-location="Istanbul" data-nights="3" data-price="1990">
+         <div class="image-box deal-photo">
+          <img data-template-id="deal-laser-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/609549/pexels-photo-609549.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close-up of a blue eye and eyebrow"><span class="discount">−50%</span>
+         </div>
+         <div class="deal-body">
+          <span class="deal-category" data-i18n="health">Health</span>
+          <h3 data-deal-title="laser">Laser Eye Package</h3>
+          <p class="deal-description" data-deal-description="laser">Explore vision correction with a supported city stay.</p>
+          <p class="deal-meta" data-deal-meta="laser">Istanbul · 3 nights</p>
+          <div class="prices">
+           <strong>CHF 1’990</strong><s>CHF 3’980</s>
+          </div>
+          <p class="availability" data-deal-availability="laser">3 places available</p><button class="add-button" type="button" data-add="laser" data-i18n="addToCart">Add to cart</button>
+         </div>
+        </article>
+        <article class="deal-card" data-deal-id="botox" data-category="Beauty" data-location="Antalya" data-nights="2" data-price="1290">
+         <div class="image-box deal-photo">
+          <img data-template-id="deal-botox-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/9157201/pexels-photo-9157201.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Professional administering a cosmetic lip treatment"><span class="discount">−60%</span>
+         </div>
+         <div class="deal-body">
+          <span class="deal-category" data-i18n="beauty">Beauty</span>
+          <h3 data-deal-title="botox">Botox &amp; Lip Filler</h3>
+          <p class="deal-description" data-deal-description="botox">A combined aesthetic consultation and treatment offer.</p>
+          <p class="deal-meta" data-deal-meta="botox">Antalya · 2 nights</p>
+          <div class="prices">
+           <strong>CHF 1’290</strong><s>CHF 3’200</s>
+          </div>
+          <p class="availability" data-deal-availability="botox">5 places available</p><button class="add-button" type="button" data-add="botox" data-i18n="addToCart">Add to cart</button>
+         </div>
+        </article>
+        <article class="deal-card" data-deal-id="smile" data-category="Beauty" data-location="Izmir" data-nights="6" data-price="4900">
+         <div class="image-box deal-photo">
+          <img data-template-id="deal-smile-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/11956948/pexels-photo-11956948.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close-up of a smiling woman with white teeth"><span class="discount">−65%</span>
+         </div>
+         <div class="deal-body">
+          <span class="deal-category" data-i18n="beauty">Beauty</span>
+          <h3 data-deal-title="smile">Hollywood Smile</h3>
+          <p class="deal-description" data-deal-description="smile">A smile-design package with a planned stay in Izmir.</p>
+          <p class="deal-meta" data-deal-meta="smile">Izmir · 6 nights</p>
+          <div class="prices">
+           <strong>CHF 4’900</strong><s>CHF 14’000</s>
+          </div>
+          <p class="availability" data-deal-availability="smile">3 places available</p><button class="add-button" type="button" data-add="smile" data-i18n="addToCart">Add to cart</button>
+         </div>
+        </article>
+        <article class="deal-card" data-deal-id="lips" data-category="Beauty" data-location="Ankara" data-nights="1" data-price="240">
+         <div class="image-box deal-photo">
+          <img data-template-id="deal-lips-image" class="canva-image" loading="lazy" decoding="async" src="https://images.pexels.com/photos/3373716/pexels-photo-3373716.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close-up portrait of a young woman"><span class="discount">−60%</span>
+         </div>
+         <div class="deal-body">
+          <span class="deal-category" data-i18n="beauty">Beauty</span>
+          <h3 data-deal-title="lips">Lip Filler</h3>
+          <p class="deal-description" data-deal-description="lips">A focused aesthetic appointment with a qualified provider.</p>
+          <p class="deal-meta" data-deal-meta="lips">Ankara · 1 night</p>
+          <div class="prices">
+           <strong>CHF 240</strong><s>CHF 600</s>
+          </div>
+          <p class="availability" data-deal-availability="lips">5 places available</p><button class="add-button" type="button" data-add="lips" data-i18n="addToCart">Add to cart</button>
+         </div>
+        </article>
+        <p id="empty-results" class="empty-results" data-i18n="noResults" hidden="">No deals match these filters. Try a different selection.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="about" class="section about-section" aria-labelledby="about-title">
+    <div class="shell about-grid">
+     <div>
+      <p class="section-kicker">RECREATE YOURSELF™</p>
+      <h2 id="about-title" class="section-heading" data-i18n="aboutTitle">Your journey, thoughtfully connected.</h2>
+      <p class="about-copy" data-i18n="aboutCopy">Explore selected offers in Turkey and combine treatments with a destination that suits you. Ask us about options, timing and the details before making a decision.</p>
+     </div>
+     <div class="about-panel">
+      <strong data-i18n="combineTitle">Interested in combining packages?</strong>
+      <p data-i18n="combineCopy">Tell us which offers interest you. Our team can help you discuss a suitable combination.</p><a class="button-primary" href="https://wa.me/41794877767" target="_blank" rel="noopener noreferrer" data-i18n="discussOptions">Discuss your options</a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer id="contact" data-template-id="site-footer" class="footer canva-footer" style="background: rgb(20, 36, 77);">
+   <div class="shell">
+    <div class="footer-grid">
+     <div>
+      <div class="footer-brand">
+       VITALITYDEALS.CH
+      </div>
+      <p class="footer-sub">by REVIVA International</p>
+      <p class="footer-sub">RECREATE YOURSELF™</p>
+     </div>
+     <nav aria-label="Footer navigation" data-i18n-aria="footerNav">
+      <a href="#home" data-i18n="home">Home</a><a href="#deals" data-i18n="allDeals">All Deals</a><a href="#about" data-i18n="about">About</a>
+     </nav>
+     <div>
+      <a href="https://wa.me/41794877767" target="_blank" rel="noopener noreferrer">WhatsApp +41 79 487 77 67</a><a href="mailto:info@vitalitydeals.ch">info@vitalitydeals.ch</a>
+     </div>
+    </div>
+    <div class="footer-bottom" data-i18n="disclaimer">
+     Prices and availability are indicative. Please confirm package details before making an enquiry.
+    </div>
+   </div>
+  </footer>
+  <div id="backdrop" class="backdrop" hidden=""></div>
+  <div id="filter-backdrop" class="backdrop filter-backdrop" hidden=""></div>
+  <aside id="cart-drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden="">
+   <div class="drawer-header">
+    <h2 id="cart-title" data-i18n="yourCart">Your cart</h2><button id="close-cart" class="close-button" type="button" aria-label="Close cart" data-i18n-aria="closeCart">×</button>
+   </div>
+   <div id="cart-items" class="cart-items"></div>
+   <div class="drawer-footer">
+    <div class="subtotal">
+     <span data-i18n="subtotal">Subtotal</span><span id="cart-subtotal">CHF 0</span>
+    </div><button id="email-enquiry" class="button-primary" type="button" data-i18n="emailEnquiry">Email enquiry</button> <button id="clear-cart" class="clear-cart" type="button" data-i18n="clearCart">Clear cart</button>
+    <p class="cart-note" data-i18n="cartNote">This opens a prepared email. You choose whether to send it; no booking or payment is made here.</p>
+    <p id="email-fallback" class="cart-note" hidden=""></p>
+   </div>
+  </aside>
+  <div id="status" class="status" role="status" aria-live="polite" aria-atomic="true" hidden=""></div>
+  <script>
+    (() => {
+      "use strict";
+      const copy = {
+        en: {
+          brandHome:"VitalityDeals.ch — home",navLabel:"Main navigation",footerNav:"Footer navigation",chooseLanguage:"Choose language",openMenu:"Open menu",closeMenu:"Close menu",openCart:"Open cart",closeCart:"Close cart",openFilters:"Open filters",closeFilters:"Close filters",trustLabel:"Why VitalityDeals",
+          home:"Home",allDeals:"All Deals",treatments:"Treatments",combinePackages:"Combine Packages",about:"About",contact:"Contact",whatsapp:"WhatsApp",cart:"Cart",
+          heroTitle:"Vitality, Beauty, Spirituality and Wellness in one place.",heroSubtitle:"Europe's First All-in-One Transformation Marketplace™",exploreDeals:"Explore Deals",contactWhatsApp:"Contact via WhatsApp",fiveCategories:"Five ways to explore",categoryNames:"Health · Beauty · Spirituality · Wellness · Experiences",
+          trust1:"Up to 70% lower prices",trust2:"Selected destinations",trust3:"Verified partners",trust4:"Personal consultation",trust5:"Multilingual support",
+          discover:"Discover your path",categoriesTitle:"Explore by category",categoriesIntro:"Find the experience that fits your next chapter.",health:"Health",beauty:"Beauty",spirituality:"Spirituality",wellness:"Wellness",experiences:"Experiences",
+          healthDesc:"Specialist care and treatment packages.",beautyDesc:"Considered aesthetic treatments.",spiritualityDesc:"Space to reconnect and reflect.",wellnessDesc:"Rest and restore at your pace.",experiencesDesc:"Discover memorable destinations.",viewDeals:"View deals →",showCategory:"Show {category} deals",
+          marketplaceLabel:"THE MARKETPLACE",filters:"Filters",category:"Category",location:"Location",price:"Price · CHF",duration:"Duration",all:"All",istanbul:"Istanbul",izmir:"Izmir",antalya:"Antalya",ankara:"Ankara",minPrice:"Minimum",maxPrice:"Maximum",nights13:"1–3 nights",nights46:"4–6 nights",nights7:"7+ nights",clearFilters:"Clear filters",dealsTitle:"Selected deals",results:"{n} deals",noResults:"No deals match these filters. Try a different selection.",night:"night",nights:"nights",available:"{n} places available",addToCart:"Add to cart",
+          aboutTitle:"Your journey, thoughtfully connected.",aboutCopy:"Explore selected offers in Turkey and combine treatments with a destination that suits you. Ask us about options, timing and the details before making a decision.",combineTitle:"Interested in combining packages?",combineCopy:"Tell us which offers interest you. Our team can help you discuss a suitable combination.",discussOptions:"Discuss your options",disclaimer:"Prices and availability are indicative. Please confirm package details before making an enquiry.",
+          yourCart:"Your cart",subtotal:"Subtotal",emailEnquiry:"Email enquiry",clearCart:"Clear cart",cartNote:"This opens a prepared email. You choose whether to send it; no booking or payment is made here.",emptyCart:"Your cart is empty. Explore the deals to get started.",remove:"Remove",decrease:"Decrease quantity of {name}",increase:"Increase quantity of {name}",removeItem:"Remove {name}",added:"{name} added to cart.",removed:"{name} removed from cart.",cartCleared:"Cart cleared.",emailFallback:"If your email app did not open, email info@vitalitydeals.ch and mention your selected deals.",emailSubject:"VitalityDeals.ch enquiry",language:"Language",quantity:"Quantity",
+          titles:{hair:"Hair Transplant Package",implant:"Dental Implant Package",laser:"Laser Eye Package",botox:"Botox & Lip Filler",smile:"Hollywood Smile",lips:"Lip Filler"},
+          descriptions:{hair:"A coordinated hair restoration package with personal guidance.",implant:"Dental care with a coordinated stay in Izmir.",laser:"Explore vision correction with a supported city stay.",botox:"A combined aesthetic consultation and treatment offer.",smile:"A smile-design package with a planned stay in Izmir.",lips:"A focused aesthetic appointment with a qualified provider."}
+        },
+        de: {
+          brandHome:"VitalityDeals.ch — Startseite",navLabel:"Hauptnavigation",footerNav:"Footernavigation",chooseLanguage:"Sprache wählen",openMenu:"Menü öffnen",closeMenu:"Menü schliessen",openCart:"Warenkorb öffnen",closeCart:"Warenkorb schliessen",openFilters:"Filter öffnen",closeFilters:"Filter schliessen",trustLabel:"Vorteile von VitalityDeals",
+          home:"Startseite",allDeals:"Alle Deals",treatments:"Behandlungen",combinePackages:"Pakete kombinieren",about:"Über uns",contact:"Kontakt",whatsapp:"WhatsApp",cart:"Warenkorb",
+          heroTitle:"Vitalität, Schönheit, Spiritualität und Wellness an einem Ort.",heroSubtitle:"Europas erster All-in-One-Marktplatz für persönliche Veränderung™",exploreDeals:"Deals entdecken",contactWhatsApp:"Kontakt via WhatsApp",fiveCategories:"Fünf Bereiche entdecken",categoryNames:"Gesundheit · Schönheit · Spiritualität · Wellness · Erlebnisse",
+          trust1:"Bis zu 70 % günstiger",trust2:"Ausgewählte Reiseziele",trust3:"Geprüfte Partner",trust4:"Persönliche Beratung",trust5:"Mehrsprachige Unterstützung",
+          discover:"Entdecken Sie Ihren Weg",categoriesTitle:"Bereiche entdecken",categoriesIntro:"Finden Sie das passende Angebot für Ihren nächsten Schritt.",health:"Gesundheit",beauty:"Schönheit",spirituality:"Spiritualität",wellness:"Wellness",experiences:"Erlebnisse",
+          healthDesc:"Fachärztliche Betreuung und Behandlungspakete.",beautyDesc:"Gezielte ästhetische Behandlungen.",spiritualityDesc:"Raum für Ruhe und neue Perspektiven.",wellnessDesc:"Erholen und neue Kraft schöpfen.",experiencesDesc:"Besondere Reiseziele entdecken.",viewDeals:"Deals ansehen →",showCategory:"Deals für {category} anzeigen",
+          marketplaceLabel:"DER MARKTPLATZ",filters:"Filter",category:"Bereich",location:"Standort",price:"Preis · CHF",duration:"Dauer",all:"Alle",istanbul:"Istanbul",izmir:"Izmir",antalya:"Antalya",ankara:"Ankara",minPrice:"Mindestens",maxPrice:"Höchstens",nights13:"1–3 Nächte",nights46:"4–6 Nächte",nights7:"7+ Nächte",clearFilters:"Filter zurücksetzen",dealsTitle:"Ausgewählte Deals",results:"{n} Deals",noResults:"Keine passenden Deals. Versuchen Sie eine andere Auswahl.",night:"Nacht",nights:"Nächte",available:"{n} Plätze verfügbar",addToCart:"In den Warenkorb",
+          aboutTitle:"Ihre Reise, gut verbunden.",aboutCopy:"Entdecken Sie ausgewählte Angebote in der Türkei und kombinieren Sie Behandlungen mit einem passenden Reiseziel. Fragen Sie uns nach Möglichkeiten, Terminen und Details.",combineTitle:"Sie möchten Pakete kombinieren?",combineCopy:"Teilen Sie uns mit, welche Angebote Sie interessieren. Unser Team bespricht mit Ihnen passende Kombinationen.",discussOptions:"Möglichkeiten besprechen",disclaimer:"Preise und Verfügbarkeit sind Richtwerte. Bitte bestätigen Sie die Paketdetails vor Ihrer Anfrage.",
+          yourCart:"Ihr Warenkorb",subtotal:"Zwischensumme",emailEnquiry:"Anfrage per E-Mail",clearCart:"Warenkorb leeren",cartNote:"Eine vorbereitete E-Mail wird geöffnet. Sie entscheiden über den Versand; hier erfolgt keine Buchung oder Zahlung.",emptyCart:"Ihr Warenkorb ist leer. Entdecken Sie die Deals.",remove:"Entfernen",decrease:"Anzahl von {name} verringern",increase:"Anzahl von {name} erhöhen",removeItem:"{name} entfernen",added:"{name} wurde hinzugefügt.",removed:"{name} wurde entfernt.",cartCleared:"Warenkorb geleert.",emailFallback:"Falls Ihr E-Mail-Programm nicht geöffnet wurde, schreiben Sie an info@vitalitydeals.ch und nennen Sie Ihre ausgewählten Deals.",emailSubject:"VitalityDeals.ch Anfrage",language:"Sprache",quantity:"Anzahl",
+          titles:{hair:"Haartransplantations-Paket",implant:"Zahnimplantat-Paket",laser:"Augenlaser-Paket",botox:"Botox & Lippenfüller",smile:"Hollywood Smile",lips:"Lippenfüller"},
+          descriptions:{hair:"Ein abgestimmtes Paket zur Haarbehandlung mit persönlicher Beratung.",implant:"Zahnärztliche Behandlung mit organisiertem Aufenthalt in Izmir.",laser:"Augenlaser-Behandlung mit begleitetem Aufenthalt entdecken.",botox:"Kombinierte Beratung und ästhetische Behandlung.",smile:"Paket für ein neues Lächeln mit Aufenthalt in Izmir.",lips:"Ein ästhetischer Behandlungstermin bei einem qualifizierten Anbieter."}
+        },
+        tr: {
+          brandHome:"VitalityDeals.ch — ana sayfa",navLabel:"Ana menü",footerNav:"Alt menü",chooseLanguage:"Dil seçin",openMenu:"Menüyü aç",closeMenu:"Menüyü kapat",openCart:"Sepeti aç",closeCart:"Sepeti kapat",openFilters:"Filtreleri aç",closeFilters:"Filtreleri kapat",trustLabel:"VitalityDeals avantajları",
+          home:"Ana Sayfa",allDeals:"Tüm Fırsatlar",treatments:"Tedaviler",combinePackages:"Paketleri Birleştir",about:"Hakkımızda",contact:"İletişim",whatsapp:"WhatsApp",cart:"Sepet",
+          heroTitle:"Canlılık, Güzellik, Maneviyat ve İyi Yaşam bir arada.",heroSubtitle:"Avrupa'nın İlk Hepsi Bir Arada Dönüşüm Pazaryeri™",exploreDeals:"Fırsatları Keşfet",contactWhatsApp:"WhatsApp ile İletişim",fiveCategories:"Beş alanı keşfedin",categoryNames:"Sağlık · Güzellik · Maneviyat · İyi Yaşam · Deneyimler",
+          trust1:"%70'e varan uygun fiyatlar",trust2:"Seçilmiş destinasyonlar",trust3:"Doğrulanmış iş ortakları",trust4:"Kişisel danışmanlık",trust5:"Çok dilli destek",
+          discover:"Yolunuzu keşfedin",categoriesTitle:"Kategorileri keşfedin",categoriesIntro:"Bir sonraki adımınıza uygun deneyimi bulun.",health:"Sağlık",beauty:"Güzellik",spirituality:"Maneviyat",wellness:"İyi Yaşam",experiences:"Deneyimler",
+          healthDesc:"Uzman bakımı ve tedavi paketleri.",beautyDesc:"Özenle seçilmiş estetik uygulamalar.",spiritualityDesc:"Yenilenmek ve düşünmek için alan.",wellnessDesc:"Kendi hızınızda dinlenin ve yenilenin.",experiencesDesc:"Unutulmaz destinasyonlar keşfedin.",viewDeals:"Fırsatları gör →",showCategory:"{category} fırsatlarını göster",
+          marketplaceLabel:"PAZARYERİ",filters:"Filtreler",category:"Kategori",location:"Konum",price:"Fiyat · CHF",duration:"Süre",all:"Tümü",istanbul:"İstanbul",izmir:"İzmir",antalya:"Antalya",ankara:"Ankara",minPrice:"En az",maxPrice:"En çok",nights13:"1–3 gece",nights46:"4–6 gece",nights7:"7+ gece",clearFilters:"Filtreleri temizle",dealsTitle:"Seçilmiş fırsatlar",results:"{n} fırsat",noResults:"Bu filtrelere uygun fırsat yok. Başka bir seçim deneyin.",night:"gece",nights:"gece",available:"{n} yer mevcut",addToCart:"Sepete ekle",
+          aboutTitle:"Yolculuğunuz, özenle planlanır.",aboutCopy:"Türkiye'deki seçilmiş fırsatları keşfedin ve tedavileri size uygun bir destinasyonla birleştirin. Karar vermeden önce seçenekleri, zamanlamayı ve detayları bize sorun.",combineTitle:"Paketleri birleştirmek ister misiniz?",combineCopy:"İlginizi çeken fırsatları bize bildirin. Ekibimiz uygun seçenekleri görüşmenize yardımcı olur.",discussOptions:"Seçenekleri görüşün",disclaimer:"Fiyatlar ve uygunluk bilgilendirme amaçlıdır. Talep göndermeden önce paket detaylarını doğrulayın.",
+          yourCart:"Sepetiniz",subtotal:"Ara toplam",emailEnquiry:"E-posta ile talep",clearCart:"Sepeti temizle",cartNote:"Hazır bir e-posta açılır. Gönderip göndermemek size bağlıdır; burada rezervasyon veya ödeme yapılmaz.",emptyCart:"Sepetiniz boş. Fırsatları keşfedin.",remove:"Kaldır",decrease:"{name} miktarını azalt",increase:"{name} miktarını artır",removeItem:"{name} ürününü kaldır",added:"{name} sepete eklendi.",removed:"{name} sepetten kaldırıldı.",cartCleared:"Sepet temizlendi.",emailFallback:"E-posta uygulamanız açılmadıysa info@vitalitydeals.ch adresine yazıp seçtiğiniz fırsatları belirtin.",emailSubject:"VitalityDeals.ch talep",language:"Dil",quantity:"Adet",
+          titles:{hair:"Saç Ekimi Paketi",implant:"Diş İmplantı Paketi",laser:"Lazer Göz Paketi",botox:"Botoks ve Dudak Dolgusu",smile:"Hollywood Smile",lips:"Dudak Dolgusu"},
+          descriptions:{hair:"Kişisel danışmanlıkla planlanan saç ekimi paketi.",implant:"İzmir konaklamasıyla planlanan diş tedavisi.",laser:"Destekli şehir konaklamasıyla lazer göz seçenekleri.",botox:"Birleşik estetik danışmanlık ve uygulama fırsatı.",smile:"İzmir konaklamalı gülüş tasarımı paketi.",lips:"Nitelikli bir uzmanla planlanan estetik uygulama."}
+        }
+      };
+
+      const deals = {
+        hair:{category:"Health",location:"Istanbul",nights:3,price:2500,available:3},
+        implant:{category:"Health",location:"Izmir",nights:5,price:2990,available:5},
+        laser:{category:"Health",location:"Istanbul",nights:3,price:1990,available:3},
+        botox:{category:"Beauty",location:"Antalya",nights:2,price:1290,available:5},
+        smile:{category:"Beauty",location:"Izmir",nights:6,price:4900,available:3},
+        lips:{category:"Beauty",location:"Ankara",nights:1,price:240,available:5}
+      };
+      const $ = selector => document.querySelector(selector);
+      const $$ = selector => Array.from(document.querySelectorAll(selector));
+      const storage = {
+        get(key){try{return localStorage.getItem(key)}catch{return null}},
+        set(key,value){try{localStorage.setItem(key,value)}catch{}}
+      };
+      let language = ["en","de","tr"].includes(storage.get("vitality-language")) ? storage.get("vitality-language") : "en";
+      let cart = {};
+      try {
+        const saved = JSON.parse(storage.get("vitality-cart") || "{}");
+        if(saved && typeof saved === "object" && !Array.isArray(saved)){
+          for(const [id,quantity] of Object.entries(saved)) if(deals[id] && Number.isInteger(quantity) && quantity > 0 && quantity <= 99) cart[id] = quantity;
+        }
+      } catch {}
+      let activeDrawer = null;
+      let previousFocus = null;
+      let statusTimer;
+      const formatMoney = value => "CHF " + new Intl.NumberFormat("de-CH",{maximumFractionDigits:0}).format(value);
+      const interpolate = (value,fields) => value.replace(/\{(\w+)\}/g,(_,key) => String(fields[key] ?? ""));
+      const t = key => copy[language][key];
+      const saveCart = () => storage.set("vitality-cart",JSON.stringify(cart));
+      function announce(message){
+        const node = $("#status");
+        node.textContent = message;
+        node.hidden = false;
+        clearTimeout(statusTimer);
+        statusTimer = setTimeout(() => {node.hidden = true},4000);
+      }
+      function translate(){
+        document.documentElement.lang = language;
+        $$("[data-i18n]").forEach(node => {
+          const value = t(node.dataset.i18n);
+          if(typeof value === "string") node.textContent = value;
+        });
+        $$("[data-i18n-aria]").forEach(node => {
+          const value = t(node.dataset.i18nAria);
+          if(typeof value === "string") node.setAttribute("aria-label",value);
+        });
+        $$("[data-lang]").forEach(button => button.setAttribute("aria-pressed",String(button.dataset.lang === language)));
+        $$("[data-category-card]").forEach(button => button.setAttribute("aria-label",interpolate(t("showCategory"),{category:t(button.dataset.categoryCard.toLowerCase())})));
+        for(const [id,deal] of Object.entries(deals)){
+          $(`[data-deal-title="${id}"]`).textContent = t("titles")[id];
+          $(`[data-deal-description="${id}"]`).textContent = t("descriptions")[id];
+          $(`[data-deal-meta="${id}"]`).textContent = `${t(deal.location.toLowerCase())} · ${deal.nights} ${t(deal.nights === 1 ? "night" : "nights")}`;
+          $(`[data-deal-availability="${id}"]`).textContent = interpolate(t("available"),{n:deal.available});
+        }
+        $("#menu-toggle").setAttribute("aria-label",t($("#site-nav").classList.contains("open") ? "closeMenu" : "openMenu"));
+        renderFilters();
+        renderCart();
+      }
+      function renderFilters(){
+        const category = $('input[name="category"]:checked').value;
+        const location = $('input[name="location"]:checked').value;
+        const duration = $('input[name="duration"]:checked').value;
+        const min = Math.max(0,Number($("#min-price").value) || 0);
+        const max = $("#max-price").value === "" ? Infinity : Math.max(0,Number($("#max-price").value) || 0);
+        let visible = 0;
+        for(const [id,deal] of Object.entries(deals)){
+          const durationMatches = duration === "All" || (duration === "1-3" && deal.nights <= 3) || (duration === "4-6" && deal.nights >= 4 && deal.nights <= 6) || (duration === "7+" && deal.nights >= 7);
+          const matches = (category === "All" || category === deal.category) && (location === "All" || location === deal.location) && durationMatches && deal.price >= min && deal.price <= max;
+          $(`[data-deal-id="${id}"]`).hidden = !matches;
+          if(matches) visible++;
+        }
+        $("#result-count").textContent = interpolate(t("results"),{n:visible});
+        $("#empty-results").hidden = visible !== 0;
+        $$("[data-category-card]").forEach(button => button.classList.toggle("active",category !== "All" && button.dataset.categoryCard === category));
+      }
+      function resetFilters(){
+        $('input[name="category"][value="All"]').checked = true;
+        $('input[name="location"][value="All"]').checked = true;
+        $('input[name="duration"][value="All"]').checked = true;
+        $("#min-price").value = "0";
+        $("#max-price").value = "15000";
+        renderFilters();
+      }
+      function renderCart(){
+        const list = $("#cart-items");
+        const existing = new Map($$(".cart-row").map(row => [row.dataset.cartId,row]));
+        let count = 0;
+        let subtotal = 0;
+        for(const [id,quantity] of Object.entries(cart)){
+          const deal = deals[id];
+          count += quantity;
+          subtotal += deal.price * quantity;
+          let row = existing.get(id);
+          if(!row){
+            row = document.createElement("div");
+            row.className = "cart-row";
+            row.dataset.cartId = id;
+            row.innerHTML = '<strong class="cart-name"></strong><p class="row-price"></p><div class="cart-controls"><button type="button" data-cart-action="decrease">−</button><span class="cart-quantity"></span><button type="button" data-cart-action="increase">+</button><button type="button" class="remove" data-cart-action="remove"></button></div>';
+            list.append(row);
+          }
+          row.querySelector(".cart-name").textContent = t("titles")[id];
+          row.querySelector(".row-price").textContent = `${quantity} × ${formatMoney(deal.price)} · ${formatMoney(deal.price * quantity)}`;
+          row.querySelector(".cart-quantity").textContent = String(quantity);
+          row.querySelector('[data-cart-action="remove"]').textContent = t("remove");
+          for(const action of ["decrease","increase","remove"]){
+            row.querySelector(`[data-cart-action="${action}"]`).setAttribute("aria-label",interpolate(t(action === "remove" ? "removeItem" : action),{name:t("titles")[id]}));
+          }
+          existing.delete(id);
+        }
+        for(const row of existing.values()) row.remove();
+        let empty = $("#cart-empty");
+        if(!count){
+          if(!empty){empty = document.createElement("p");empty.id = "cart-empty";empty.className = "cart-empty";list.append(empty)}
+          empty.textContent = t("emptyCart");
+        } else if(empty) empty.remove();
+        $("#cart-count").textContent = String(count);
+        $("#cart-subtotal").textContent = formatMoney(subtotal);
+        $("#email-enquiry").disabled = !count;
+        $("#clear-cart").hidden = !count;
+      }
+      function setLanguage(lang){
+        if(!copy[lang]) return;
+        language = lang;
+        storage.set("vitality-language",lang);
+        translate();
+      }
+      function openCart(trigger){
+        closeFilters(false);
+        previousFocus = trigger || document.activeElement;
+        activeDrawer = "cart";
+        $("#backdrop").hidden = false;
+        $("#cart-drawer").hidden = false;
+        document.body.classList.add("locked");
+        $("#close-cart").focus();
+      }
+      function closeCart(restore = true){
+        if(activeDrawer !== "cart") return;
+        $("#backdrop").hidden = true;
+        $("#cart-drawer").hidden = true;
+        $("#email-fallback").hidden = true;
+        activeDrawer = null;
+        document.body.classList.remove("locked");
+        if(restore) previousFocus?.focus();
+      }
+      function openFilters(){
+        closeCart(false);
+        previousFocus = document.activeElement;
+        activeDrawer = "filters";
+        $("#filters").classList.add("mobile-open");
+        $("#filter-backdrop").hidden = false;
+        $("#open-filters").setAttribute("aria-expanded","true");
+        document.body.classList.add("locked");
+        $("#close-filters").focus();
+      }
+      function closeFilters(restore = true){
+        if(activeDrawer !== "filters") return;
+        $("#filters").classList.remove("mobile-open");
+        $("#filter-backdrop").hidden = true;
+        $("#open-filters").setAttribute("aria-expanded","false");
+        document.body.classList.remove("locked");
+        activeDrawer = null;
+        if(restore) previousFocus?.focus();
+      }
+      function closeMenu(restore = false){
+        const wasOpen = $("#site-nav").classList.contains("open");
+        $("#site-nav").classList.remove("open");
+        $("#menu-toggle").setAttribute("aria-expanded","false");
+        $("#menu-toggle").setAttribute("aria-label",t("openMenu"));
+        if(restore && wasOpen) $("#menu-toggle").focus();
+      }
+      $$("[data-lang]").forEach(button => button.addEventListener("click",() => setLanguage(button.dataset.lang)));
+      $("#menu-toggle").addEventListener("click",() => {
+        const open = $("#site-nav").classList.toggle("open");
+        $("#menu-toggle").setAttribute("aria-expanded",String(open));
+        $("#menu-toggle").setAttribute("aria-label",t(open ? "closeMenu" : "openMenu"));
+        if(open) $("#site-nav a").focus();
+      });
+      $("#site-nav").addEventListener("click",event => {if(event.target.closest("a")) closeMenu()});
+      $("#filters").addEventListener("input",renderFilters);
+      $("#clear-filters").addEventListener("click",resetFilters);
+      $("#open-filters").addEventListener("click",openFilters);
+      $("#close-filters").addEventListener("click",() => closeFilters());
+      $("#filter-backdrop").addEventListener("click",() => closeFilters());
+      $$("[data-category-card]").forEach(button => button.addEventListener("click",() => {
+        $(`input[name="category"][value="${button.dataset.categoryCard}"]`).checked = true;
+        renderFilters();
+        $("#deals").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth"});
+      }));
+      $("#deals-grid").addEventListener("click",event => {
+        const button = event.target.closest("[data-add]");
+        if(!button) return;
+        const id = button.dataset.add;
+        if(!deals[id]) return;
+        cart[id] = Math.min(99,(cart[id] || 0) + 1);
+        saveCart();
+        renderCart();
+        announce(interpolate(t("added"),{name:t("titles")[id]}));
+      });
+      $("#open-cart").addEventListener("click",event => openCart(event.currentTarget));
+      $("#close-cart").addEventListener("click",() => closeCart());
+      $("#backdrop").addEventListener("click",() => closeCart());
+      $("#cart-items").addEventListener("click",event => {
+        const button = event.target.closest("[data-cart-action]");
+        if(!button) return;
+        const id = button.closest("[data-cart-id]")?.dataset.cartId;
+        if(!deals[id] || !cart[id]) return;
+        const action = button.dataset.cartAction;
+        if(action === "increase") cart[id] = Math.min(99,cart[id] + 1);
+        else if(action === "decrease"){
+          if(cart[id] === 1) delete cart[id];
+          else cart[id]--;
+        } else {
+          delete cart[id];
+          announce(interpolate(t("removed"),{name:t("titles")[id]}));
+        }
+        saveCart();
+        renderCart();
+        if(!button.isConnected) $("#close-cart").focus();
+      });
+      $("#clear-cart").addEventListener("click",() => {
+        cart = {};
+        saveCart();
+        renderCart();
+        announce(t("cartCleared"));
+        $("#close-cart").focus();
+      });
+      $("#email-enquiry").addEventListener("click",() => {
+        const entries = Object.entries(cart);
+        if(!entries.length) return;
+        const subtotal = entries.reduce((sum,[id,quantity]) => sum + deals[id].price * quantity,0);
+        const lines = entries.map(([id,quantity]) => `${quantity} × ${t("titles")[id]} — ${formatMoney(deals[id].price)} each — ${formatMoney(deals[id].price * quantity)}`);
+        const body = `${lines.join("\n")}\n\n${t("subtotal")}: ${formatMoney(subtotal)}\n${t("language")}: ${language.toUpperCase()}`;
+        const url = `mailto:info@vitalitydeals.ch?subject=${encodeURIComponent(t("emailSubject"))}&body=${encodeURIComponent(body)}`;
+        $("#email-fallback").textContent = t("emailFallback");
+        $("#email-fallback").hidden = false;
+        const link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        document.body.append(link);
+        link.click();
+        link.remove();
+      });
+      document.addEventListener("keydown",event => {
+        if(event.key === "Escape"){
+          if(activeDrawer === "cart"){closeCart();return}
+          if(activeDrawer === "filters"){closeFilters();return}
+          closeMenu(true);
+        }
+        if(event.key !== "Tab" || !activeDrawer) return;
+        const panel = activeDrawer === "cart" ? $("#cart-drawer") : $("#filters");
+        const focusable = $$("#" + panel.id + ' button:not([disabled]):not([hidden]), #' + panel.id + ' input:not([disabled])').filter(element => element.getClientRects().length);
+        if(!focusable.length) return;
+        const first = focusable[0],last = focusable[focusable.length - 1];
+        if(event.shiftKey && document.activeElement === first){event.preventDefault();last.focus()}
+        else if(!event.shiftKey && document.activeElement === last){event.preventDefault();first.focus()}
+        else if(!panel.contains(document.activeElement)){event.preventDefault();first.focus()}
+      });
+      $$("img").forEach(image => {
+        image.addEventListener("error",() => image.closest(".image-box")?.classList.add("image-error"));
+      });
+      window.addEventListener("resize",() => {
+        if(innerWidth > 750) closeFilters(false);
+        if(innerWidth > 950) closeMenu();
+      });
+      translate();
+    })();
+  </script>
+ 
+</body></html>
